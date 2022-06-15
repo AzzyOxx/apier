@@ -1,0 +1,48 @@
+import express from "express";
+
+const app = express();
+
+app.get('/aluno', (req, res) => {
+    return res.json({message: 'Hello devs!!'})
+})
+
+app.listen(3000, () => console.info('Funfou...'));
+
+//yarn dev
+//yarn nodemon src/server.js
+
+import {createServer} from 'http';
+
+async function handler(req, res ){
+    const {method} = req;
+    
+    if (method === 'GET'){
+        return res.end('Isto foi um GET');
+    }else if (method === 'POST'){
+        return res.end('Isto foi um POST');
+    }
+}
+
+const app = createServer(handler);
+
+app.listen(3000, () => console.log('Server running at http://localhost:300...'));
+
+import {createServer} from 'http';
+
+async function handler(req, res ){
+    const {method} = req;
+    
+    if (method === 'GET'){
+        return res.end(get(req));
+    }else if (method === 'POST'){
+        return res.end('Isto foi um POST');
+    }
+}
+
+const app = createServer(handler);
+
+app.listen(3000, () => console.log('Server running at http://localhost:300...'));
+
+function get(req){
+    return 'Isto foi um GET';
+}
